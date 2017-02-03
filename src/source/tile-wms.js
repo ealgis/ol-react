@@ -3,7 +3,7 @@ import ol from 'openlayers'
 import OLComponent from '../ol-component'
 import * as interaction from '../interaction'
 
-export default class ImageWMS extends OLComponent {
+export default class TileWMS extends OLComponent {
   constructor(props) {
     super(props)
     this.source = new ol.source.TileWMS(Object.assign({}, this.props))
@@ -22,20 +22,20 @@ export default class ImageWMS extends OLComponent {
   componentWillUnmount() {}
 }
 
-ImageWMS.propTypes = {
+TileWMS.propTypes = {
   url: React.PropTypes.string.isRequired,
   params: React.PropTypes.object.isRequired
 }
 
-ImageWMS.defaultProps = {
+TileWMS.defaultProps = {
   
 }
 
-ImageWMS.contextTypes = {
+TileWMS.contextTypes = {
   layer: React.PropTypes.instanceOf(ol.layer.Base),
   map: React.PropTypes.instanceOf(ol.Map)
 }
 
-ImageWMS.childContextTypes = {
+TileWMS.childContextTypes = {
   source: React.PropTypes.instanceOf(ol.source.Source)
 }
