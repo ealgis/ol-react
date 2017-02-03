@@ -3,10 +3,10 @@ import ol from 'openlayers'
 import OLComponent from '../ol-component'
 import * as interaction from '../interaction'
 
-export default class TileWMS extends OLComponent {
+export default class VectorTile extends OLComponent {
   constructor(props) {
     super(props)
-    this.source = new ol.source.TileWMS(Object.assign({}, this.props))
+    this.source = new ol.source.VectorTile(Object.assign({}, this.props))
   }
 
   getChildContext() {
@@ -22,20 +22,21 @@ export default class TileWMS extends OLComponent {
   componentWillUnmount() {}
 }
 
-TileWMS.propTypes = {
+VectorTile.propTypes = {
   url: React.PropTypes.string,
-  params: React.PropTypes.object.isRequired
+  tileGrid: React.PropTypes.instanceOf(ol.tilegrid.TileGrid),
+  format: React.PropTypes.instanceOf(ol.format.Feature),
 }
 
-TileWMS.defaultProps = {
+VectorTile.defaultProps = {
   
 }
 
-TileWMS.contextTypes = {
+VectorTile.contextTypes = {
   layer: React.PropTypes.instanceOf(ol.layer.Base),
   map: React.PropTypes.instanceOf(ol.Map)
 }
 
-TileWMS.childContextTypes = {
+VectorTile.childContextTypes = {
   source: React.PropTypes.instanceOf(ol.source.Source)
 }
