@@ -5,9 +5,7 @@ import OLContainer from '../ol-container'
 export default class VectorTile extends OLContainer {
   constructor (props) {
     super(props)
-    this.layer = new ol.layer.VectorTile({
-      visible: this.props.visible
-    })
+    this.layer = new ol.layer.VectorTile(Object.assign({}, this.props))
     this.layer.setZIndex(props.zIndex)
   }
 
