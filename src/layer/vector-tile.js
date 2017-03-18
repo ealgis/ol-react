@@ -22,6 +22,7 @@ export default class VectorTile extends OLContainer {
   componentWillReceiveProps (newProps) {
     this.layer.setVisible(newProps.visible)
     this.layer.setZIndex(newProps.zIndex)
+    this.layer.setStyle(newProps.style)
   }
 
   componentWillUnmount () {
