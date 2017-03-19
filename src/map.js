@@ -28,6 +28,11 @@ export default class Map extends React.Component {
     }
   }
 
+  componentDidUpdate () {
+    // FIXME This should only happen when the size actually changes
+    this.map.updateSize()
+  }
+
   componentWillUnmount () {
     this.map.setTarget(undefined)
   }
