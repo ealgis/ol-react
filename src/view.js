@@ -34,7 +34,7 @@ export default class View extends OLComponent {
   }
 
   updateFromProps_ (props, isMounting) {
-    if (isMounting) {
+    if (isMounting || props.allowMapViewSetting) {
       // Update the center and the resolution of the view only when it is
       // mounted the first time but not when the properties are updated
       this.updateCenterAndResolutionFromProps_(props)
