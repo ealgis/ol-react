@@ -7,6 +7,9 @@ export default class VectorTile extends OLContainer {
     super(props)
     this.layer = new ol.layer.VectorTile(Object.assign({}, this.props))
     this.layer.setZIndex(props.zIndex)
+    if(props.properties !== undefined) {
+      this.layer.setProperties(props.properties, /* opt_silent */true)
+    }
   }
 
   getChildContext () {
@@ -23,6 +26,9 @@ export default class VectorTile extends OLContainer {
     this.layer.setVisible(newProps.visible)
     this.layer.setZIndex(newProps.zIndex)
     this.layer.setStyle(newProps.style)
+    if(newProps.properties !== undefined) {
+      this.layer.setProperties(newProps.properties, /* opt_silent */true)
+    }
   }
 
   componentWillUnmount () {
