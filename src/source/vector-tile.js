@@ -20,6 +20,13 @@ export default class VectorTile extends OLComponent {
   }
 
   componentWillUnmount() {}
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.url !== newProps.url) {
+      this.source.setUrl(newProps.url)
+      this.source.refresh()
+    }
+  }
 }
 
 VectorTile.propTypes = {
