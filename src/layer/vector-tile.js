@@ -29,6 +29,9 @@ export default class VectorTile extends OLContainer {
     if(newProps.properties !== undefined) {
       this.layer.setProperties(newProps.properties, /* opt_silent */true)
     }
+    if(newProps.opacity !== this.props.opacity) {
+      this.layer.setOpacity(newProps.opacity)
+    }
   }
 
   componentWillUnmount () {
