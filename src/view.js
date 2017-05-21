@@ -6,8 +6,10 @@ export default class View extends OLComponent {
   constructor(props) {
     super(props);
     this.view = new ol.View();
-    this.view.on("change:center", this.onCenterChanged, this);
-    this.view.on("change:resolution", this.onResolutionChanged, this);
+    if (this.props.onNavigation) {
+      this.view.on("change:center", this.onCenterChanged, this);
+      this.view.on("change:resolution", this.onResolutionChanged, this);
+    }
   }
 
   onCenterChanged (event) {

@@ -18,6 +18,9 @@ export default class Map extends React.Component {
     if (this.props.onSingleClick) {
       this.map.on('singleclick', this.props.onSingleClick);
     }
+    if (this.props.onMoveEnd) {
+      this.map.on('moveend', this.props.onMoveEnd);
+    }
   }
 
   componentDidMount () {
@@ -68,6 +71,7 @@ Map.propTypes = {
   loadTilesWhileInteracting: React.PropTypes.bool,
   onSingleClick: React.PropTypes.func,
   onChangeSize: React.PropTypes.func,
+  onMoveEnd: React.PropTypes.func,
   view: React.PropTypes.element.isRequired,
   useDefaultInteractions: React.PropTypes.bool.isRequired,
   useDefaultControls: React.PropTypes.bool.isRequired,
